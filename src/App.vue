@@ -15,12 +15,14 @@
       ></v-treeview>
       <!-- -->
 
-      <v-switch
-        class="ml-3"
-        v-model="isShowDebug"
-        @change="onDebugSwitch"
-        :label="`vConsole: ${isShowDebug.toString()}`"
-      ></v-switch>
+      <template v-slot:append>
+        <v-switch
+          class="ml-3"
+          v-model="isShowDebug"
+          @change="onDebugSwitch"
+          :label="`vConsole: ${isShowDebug.toString()}`"
+        ></v-switch>
+      </template>
     </v-navigation-drawer>
     <v-app-bar :clipped-left="true" app color="primary" dark>
       <v-app-bar-nav-icon @click.stop="showNav = !showNav"></v-app-bar-nav-icon>
@@ -110,7 +112,7 @@ export default Vue.extend({
       isShowInputDialog: false,
       isLoading: false,
       remoteUrl: "",
-      txt: "<empty>",
+      txt: "",
       showNav: true,
       cherrytree: new CherryTree(),
     };
@@ -226,3 +228,7 @@ export default Vue.extend({
   },
 });
 </script>
+<style scoped>
+.console_switch {
+}
+</style>

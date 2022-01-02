@@ -31,9 +31,10 @@ export default class CherryReader extends Vue {
 
   get getRichTextList(): RichTextData[] {
     console.log("try parse node..");
-    if (this.xmlContent == null) {
+    if (this.xmlContent == null || this.xmlContent == "") {
       return [];
     }
+    console.log(this.xmlContent);
     let doc = this.xmlParser.parseFromString(
       this.xmlContent,
       "application/xml"
